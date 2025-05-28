@@ -80,7 +80,11 @@ class GamesController extends Controller
 
         return response()->json([
             'message' => 'Record Successfully Deleted.',
-            'the-removed-id' => $id
+            'the-removed-id' => $id,
+            'redirect' => route('games.index_game')
         ], 200);
+
+        // planning to use this code to redirect me back to the index but I can't because of the response->json.
+        // return redirect()->route('games.index_game')->with('success', 'Game deleted successfully!');
     }
 }
