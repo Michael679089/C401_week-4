@@ -70,7 +70,7 @@ class GamesController extends Controller
     public function show_game($id)
     {
         $game = Game::findOrFail($id);
-        return view('games.index', ['games' => [$game]]);
+        return view('games.show-game', ['game' => $game]);
     }
 
     public function destroy_game($id)
@@ -81,7 +81,7 @@ class GamesController extends Controller
         return response()->json([
             'message' => 'Record Successfully Deleted.',
             'the-removed-id' => $id,
-            'redirect' => route('games.index_game')
+            'redirect' => route('games.index')
         ], 200);
 
         // planning to use this code to redirect me back to the index but I can't because of the response->json.

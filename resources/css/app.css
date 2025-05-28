@@ -6,11 +6,39 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+    --font-sans: "Press Start 2P", "VT323", "Share Tech Mono", "Courier New",
+        Courier, monospace, ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
 }
 
-.hello {
-    font-size: 1000000px;
+* {
+    font-family: "Press Start 2P";
+}
+
+body {
+    @apply bg-black;
+}
+
+.header {
+    background-color: rgb(17, 17, 17);
+}
+
+.games-list-word {
+    @apply text-green-500;
+
+    text-shadow: 0 0 10px #22c55e, 0 0 60px #22c55e;
+}
+
+.game-table thead tr th,
+.game-table tbody tr td {
+    @apply px-1 py-2 md:p-1 text-center border border-white;
+}
+
+.game-table tbody tr td {
+    @apply bg-black;
+}
+
+button {
+    @apply cursor-pointer;
 }
