@@ -1,10 +1,17 @@
+@extends('layouts.app')
+
+
+@section('content')
 <div>
+    <div class="hello">WHAT</div>
     <h1>Games List</h1>
     <ul>
         @foreach($games as $game)
         <li style="color: rgb(36, 18, 101)"><b><i>ID: {{ $game['id'] }}</i></b></li>
         <li><b>{{ $game['title'] }}</b></li>
         <li><i>{{ $game['developer'] }}</i></li>
-        <a href="{{ url('games/' . $game['id'] . '/form') }}">go to delete form</a>        @endforeach
+        <a href="{{ url('games/' . $game['id'] . '/form') }}">go to delete form</a>        
+        @endforeach
     <ul>
 </div>
+@endsection
