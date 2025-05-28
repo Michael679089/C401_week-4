@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Game;
+
 class GamesController extends Controller
 {
     protected $game_list;
@@ -47,12 +49,38 @@ class GamesController extends Controller
      */
     public function destroy(string $id)
     {
-        $results = array_filter($this->game_list, function ($game) use ($id) {
+        $theRemovedID = array_filter($this->game_list, function ($game) use ($id) {
             return $game['id'] == $id;
         });
+
         return response()->json([
-            'message' => 'Record Successfull Deleted.',
-            'content' => $results
+            'message' => 'Record Successfully Deleted.',
+            'the-removed-id' => $theRemovedID
+        ], 200);
+    }
+
+    /// For the Game Model
+
+    public function index_game()
+    {
+        $games = Game::all();
+        return view('games.index', ['games' => $games]);
+    }
+
+    public function show_game($id)
+    {
+        $game = Game::findOrFail($id);
+        return view('games.index', ['games' => [$game]]);
+    }
+
+    public function destroy_game($id)
+    {
+        $game = Game::findOrFail($id);
+        $game->delete();
+
+        return response()->json([
+            'message' => 'Record Successfully Deleted.',
+            'the-removed-id' => $id
         ], 200);
     }
 }
