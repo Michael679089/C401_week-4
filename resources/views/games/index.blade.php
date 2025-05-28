@@ -14,6 +14,7 @@
                 <th>Title</th>
                 <th>Developer</th>
                 <th>Genre</th>
+                <th>Price</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -25,8 +26,9 @@
                 <td>{{$game['title']}}</td>
                 <td>{{$game['developer']}}</td>
                 <td>{{$game['genre']}}</td>
+                <td>${{$game['price']}}</td>
                 <td>
-                    <a class="bg-green-500 px-2 py-1" href="{{ url('games/' . $game['id']) }}">Open Game</a>
+                    <a class="bg-green-500 px-auto py-1" href="{{ url('games/' . $game['id']) }}">Show Game</a>
                 </td>
                 <td>
                     <a class="bg-red-500 px-2 py-1" href="{{ url('games/' . $game['id'] . '/form') }}">Delete</a>

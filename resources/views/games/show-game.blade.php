@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="h-screen mx-[30px] bg-gray-800">
+<div class="h-screen mx-[30px]">
     
-
-    <table class="text-[10px] table-auto mx-auto border border-collapse game-table">
+    <table class="text-[5px] md:text-[8px] lg:text-[15px] table-auto md:table-fixed mx-auto border border-collapse game-table">
         <thead class="bg-gray-500 text-white border border-black">
             <tr>
                 <th class="text-[9px]">id</th>
@@ -21,7 +20,7 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-[9px]">{{ $game['id'] }}</td>
+                <td>{{ $game['id'] }}</td>
                 <td>{{ $game['title'] }}</td>
                 <td>{{ $game['releaseDate'] }}</td>
                 <td>{{ $game['developer'] }}</td>
