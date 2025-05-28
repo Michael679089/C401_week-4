@@ -19,6 +19,7 @@ class GamesController extends Controller
     public function index()
     {
         //Step 3. Your code here
+        return view('games.index', ['games' => $this->game_list]);
     }
 
     /**
@@ -27,10 +28,18 @@ class GamesController extends Controller
     public function show(string $id)
     {
         //Step 4.
-        $results = array_filter($this->game_list, function ($game) use ($id) {
-            return $game['id'] != $id;
-        });
-        return view('games.show', ['games' => $results]);
+        echo "Our id we want to get: $id";
+
+        // Find the game with the matching id
+        $game = collect($this->game_list)->firstWhere('id', $id);
+
+        // Optionally, handle not found
+        if (!$game) {
+            abort(404, 'Game not found');
+        }
+
+        // Return a view for a single game
+        return view('games.index', ['games' => [$game]]);
     }
 
     /**
